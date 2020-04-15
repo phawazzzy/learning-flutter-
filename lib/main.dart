@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
             title: Text(title),
           ),
           body: GridView.count(
-              crossAxisCount: 3,
+              crossAxisCount: 4,
               children: List.generate(100, (index) {
                 return Center(
                   child: Container(
-                    width: 100.0,
-                    height: 100.0,
+                    width: 80.0,
+                    height: 80.0,
                     color: Colors.lightBlue,
                     child: Center(
                       child: Text(
