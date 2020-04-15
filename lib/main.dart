@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final title = 'Horizontal List Example';
+  final title = 'Grid view';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,43 +12,26 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: Text(title),
           ),
-          body: ListView.builder(
-            itemCount: 4,
-            itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.symmetric(vertical: 50.0),
-              height: 300.0,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  Container(
-                    width: 120.0,
-                    color: Colors.red,
+          body: GridView.count(
+              crossAxisCount: 3,
+              children: List.generate(100, (index) {
+                return Center(
+                  child: Container(
+                    width: 100.0,
+                    height: 100.0,
+                    color: Colors.lightBlue,
+                    child: Center(
+                      child: Text(
+                        'Position $index',
+                        style: TextStyle(
+                            color: Colors.white, 
+                            fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
                   ),
-                  Container(
-                    width: 120.0,
-                    color: Colors.white,
-                  ),
-                  Container(
-                    width: 120.0,
-                    color: Colors.pinkAccent,
-                  ),
-                  Container(
-                    width: 120.0,
-                    color: Colors.green,
-                  ),
-                  Container(
-                    width: 120.0,
-                    color: Colors.pink,
-                  ),
-                  Container(
-                    width: 120.0,
-                    color: Colors.lime,
-                  )
-                ],
-              ),
-            );
-          })),
+                );
+              }))),
     );
   }
 }
